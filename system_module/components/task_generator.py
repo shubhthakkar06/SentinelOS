@@ -8,14 +8,14 @@ class TaskGenerator:
     def generate_task(self, current_time):
         tasks = []
 
-        if random.random() < 0.6:
+        if random.random() < 0.4:
             num_tasks = random.randint(1, 2)
             for _in in range(num_tasks):
                 task = Task(
                     tid = self.task_id,
                     task_type= random.choice(["CPU","IO"]),
                     base_priority = random.randint(1,10),
-                    deadline = current_time+random.randint(5,20),
+                    deadline = current_time+random.randint(15,40),
                     critical = random.choice([True, False])
                 )
                 tasks.append(task)

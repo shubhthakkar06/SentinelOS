@@ -1,15 +1,15 @@
 class Metrics:
     def __init__(self):
         self.faults = []
-        self.history = []
+        self.records = []
 
     def record_fault(self, fault):
         self.faults.append(fault)
 
-    def update(self, **kwargs):
-        self.history.append(kwargs)
+    def record_step(self, data):
+        self.records.append(data)
 
     def summary(self):
         print("\n--- METRICS SUMMARY ---")
         print(f"Total Faults: {len(self.faults)}")
-        print(f"Total Steps: {len(self.history)}")
+        print(f"Total Steps: {len(self.records)}")
