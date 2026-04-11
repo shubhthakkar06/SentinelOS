@@ -1,4 +1,4 @@
-from system_module.core.system_simulator import SystemSimulator
+from sentinel_os.core.system_simulator import SystemSimulator
 
 def main():
     print("Starting SentinelOS Simulation...")

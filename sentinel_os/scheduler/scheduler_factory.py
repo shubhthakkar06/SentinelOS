@@ -1,7 +1,7 @@
-from algorithms.priority import PriorityScheduler
-from algorithms.edf import EDFScheduler
-from algorithms.hybrid import HybridScheduler
-from algorithms.round_robin import RoundRobin
+from sentinel_os.scheduler.algorithms.priority import PriorityScheduler
+from sentinel_os.scheduler.algorithms.edf import EDFScheduler
+from sentinel_os.scheduler.algorithms.hybrid import HybridScheduler
+from sentinel_os.scheduler.algorithms.round_robin import RoundRobin
 
 def get_scheduler(name):
     if name == "priority":

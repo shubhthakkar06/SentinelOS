@@ -1,4 +1,4 @@
-from base.scheduler_base import SchedulerBase
+from sentinel_os.scheduler.scheduler_base import SchedulerBase
 
 class PriorityScheduler(SchedulerBase):
     def __init__(self):

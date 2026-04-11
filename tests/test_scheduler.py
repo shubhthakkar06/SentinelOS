@@ -1,5 +1,5 @@
-from scheduler_factory import get_scheduler
-from base.task import Task
+from sentinel_os.scheduler.scheduler_factory import get_scheduler
+from sentinel_os.core.task import Task
 
 tasks = [
     Task(1, "Navigation", 10, deadline=5, critical=True),

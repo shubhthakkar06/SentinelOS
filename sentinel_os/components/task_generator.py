@@ -1,5 +1,5 @@
 import random
-from scheduler_module.base.task import Task
+from sentinel_os.core.task import Task
 
 class TaskGenerator:
     def __init__(self):
@@ -13,7 +13,7 @@ class TaskGenerator:
             for _in in range(num_tasks):
                 task = Task(
                     tid = self.task_id,
-                    task_type= random.choice(["CPU","IO"]),
+                    task_type= random.choice(["Navigation", "ObstacleAvoidance", "SonarPing", "DepthControl", "BatteryMonitor", "DataLogging"]),
                     base_priority = random.randint(1,10),
                     deadline = current_time+random.randint(15,40),
                     critical = random.choice([True, False])

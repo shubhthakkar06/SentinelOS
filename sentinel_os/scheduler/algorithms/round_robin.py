@@ -1,5 +1,5 @@
 from collections import deque
-from base.scheduler_base import SchedulerBase
+from sentinel_os.scheduler.scheduler_base import SchedulerBase
 
 class RoundRobin(SchedulerBase):
     def __init__(self, time_quantum=2):
