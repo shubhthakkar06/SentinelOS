@@ -27,6 +27,7 @@ class SystemSimulator:
         self.metrics = Metrics()
         self.dataset_generator = DatasetGenerator()
         self.prev_task = None
+        self.disconnected = False
 
     def initialize(self):
         self.logger.log("Initializing System")
@@ -64,6 +65,7 @@ class SystemSimulator:
                 else:
                     task.execute(2)
                     task.remaining_time -= 2
+                    self.resource_manager.consume_energy(task)
                     faults = self.faults_injector.inject_task_fault(task, self.time)
                     
                     # Record sample for offline ML training
