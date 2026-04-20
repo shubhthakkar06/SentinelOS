@@ -16,7 +16,7 @@ class HybridScheduler(SchedulerBase):
 
     # normalize values
         critical_score = 50 if task.critical else 0
-        priority_score = task.base_priority * 5
+        priority_score = task.effective_priority * 5   # PIP-aware: respects inherited priority
         aging_score = task.waiting_time * 10
         deadline_score = max(0, 50 - deadline)   # earlier deadline = higher score
         execution_penalty = self.execution_count[task.tid] * 15
@@ -25,9 +25,6 @@ class HybridScheduler(SchedulerBase):
         if self.ai_advisor and system_state is not None:
             raw_boost = self.ai_advisor.get_advisory_signal(task, system_state)
             ai_boost = raw_boost * 10
-            # Print a highly visible alert if the AI intervenes!
-            if ai_boost > 0:
-                print(f"\033[96m[⚡ AI ADVISOR] Predicting potential fault! Boosted Task {task.tid} ({task.task_type}) Priority by +{raw_boost}\033[0m")
             
     # FINAL SCORE
         score = (
@@ -61,6 +58,10 @@ class HybridScheduler(SchedulerBase):
 
         return task
 
+    def get_queued_tasks(self):
+        return list(self.tasks)
+
     def requeue(self, task):
-        if task.state != "FAULT":
+        from sentinel_os.core.task import TaskState
+        if task.state not in (TaskState.TERMINATED, str(TaskState.TERMINATED), "TERMINATED"):
             self.tasks.append(task)

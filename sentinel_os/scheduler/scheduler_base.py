@@ -11,5 +11,9 @@ class SchedulerBase:
     def get_next_task(self, system_state=None):
         raise NotImplementedError
 
+    def get_queued_tasks(self):
+        """Return a list of all tasks currently in the scheduler's queue."""
+        raise NotImplementedError
+
     def requeue(self, task):
         raise NotImplementedError
