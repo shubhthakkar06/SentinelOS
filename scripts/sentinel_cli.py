@@ -44,10 +44,13 @@ class SentinelTerminal(cmd.Cmd):
         table = Table(title="AUV System Status")
         table.add_column("Property", style="cyan")
         table.add_column("Value", justify="right")
-        
+
+        self.sim.resource_manager.refresh()
+
         mem = self.sim.resource_manager.available_memory
         bat = self.sim.resource_manager.current_battery
-        
+        cpu = self.sim.resource_manager.cpu_usage
+        table.add_row("CPU Usage", f"{cpu:.1f}%")
         table.add_row("Time/Step", str(self.sim.time))
         table.add_row("Memory Level", f"{mem:.1f}%")
         table.add_row("Battery Level", f"{bat:.1f}%")
@@ -93,15 +96,17 @@ class SentinelTerminal(cmd.Cmd):
         if task:
             if not hasattr(task, "remaining_time"):
                 task.remaining_time = random.randint(3, 8)
-                
+
             if not self.sim.resource_manager.allocate(task):
                 task.state = "WAITING"
             else:
-                task.execute(2)
-                task.remaining_time -= 2
-                self.sim.resource_manager.consume_energy(task)
-                
-                faults = self.sim.faults_injector.inject_task_fault(task, self.sim.time)
+                self.sim.resource_manager.apply_scheduling_policy(task)
+
+                faults = self.sim.faults_injector.inject_task_fault(
+                    task,
+                    self.sim.time,
+                    {"available_memory": self.sim.resource_manager.available_memory}
+                )
                 fault_occurred = len(faults) > 0
                 
                 # Report faults live
