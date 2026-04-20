@@ -1,0 +1,39 @@
+{
+  "scheduler": "priority",
+  "simulation_steps": 150,
+  "tasks_completed": 35,
+  "tasks_fault_terminated": 1,
+  "task_completion_rate": 0.9722,
+  "deadline_miss_rate": 0.1429,
+  "throughput": 0.233333,
+  "cpu_utilization": 1.0,
+  "average_waiting_time": 0.0,
+  "average_turnaround_time": 17.6111,
+  "context_switches": 45,
+  "total_faults": 41,
+  "fault_rate": 0.273333,
+  "fault_breakdown": {
+    "RESOURCE_FAILURE": 21,
+    "DEADLINE_MISS": 20
+  },
+  "energy_consumed": 181.197,
+  "ai_interventions": 150,
+  "ai_precision": 0.2867,
+  "resource_stats": {
+    "total_memory": 100,
+    "available_memory": 100,
+    "peak_memory_usage": 12,
+    "memory_utilization": 0.0,
+    "fragmentation_ratio": 0.0,
+    "alloc_failures": 0,
+    "total_battery": 1000.0,
+    "current_battery": 818.803,
+    "total_energy_consumed": 181.197
+  },
+  "lock_stats": {
+    "total_locks": 0,
+    "priority_inversion_events": 0,
+    "priority_inheritance_boosts": 0,
+    "locks": {}
+  }
+}

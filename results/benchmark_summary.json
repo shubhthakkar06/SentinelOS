@@ -1,0 +1,158 @@
+[
+  {
+    "scheduler": "hybrid",
+    "simulation_steps": 150,
+    "tasks_completed": 16,
+    "tasks_fault_terminated": 1,
+    "task_completion_rate": 0.9412,
+    "deadline_miss_rate": 1.0,
+    "throughput": 0.106667,
+    "cpu_utilization": 1.0,
+    "average_waiting_time": 0.0,
+    "average_turnaround_time": 87.9412,
+    "context_switches": 150,
+    "total_faults": 121,
+    "fault_rate": 0.806667,
+    "fault_breakdown": {
+      "RESOURCE_FAILURE": 21,
+      "DEADLINE_MISS": 100
+    },
+    "energy_consumed": 174.881,
+    "ai_interventions": 150,
+    "ai_precision": 0.72,
+    "resource_stats": {
+      "total_memory": 100,
+      "available_memory": 100,
+      "peak_memory_usage": 12,
+      "memory_utilization": 0.0,
+      "fragmentation_ratio": 0.0,
+      "alloc_failures": 0,
+      "total_battery": 1000.0,
+      "current_battery": 825.119,
+      "total_energy_consumed": 174.881
+    },
+    "lock_stats": {
+      "total_locks": 0,
+      "priority_inversion_events": 0,
+      "priority_inheritance_boosts": 0,
+      "locks": {}
+    }
+  },
+  {
+    "scheduler": "edf",
+    "simulation_steps": 150,
+    "tasks_completed": 31,
+    "tasks_fault_terminated": 2,
+    "task_completion_rate": 0.9394,
+    "deadline_miss_rate": 0.7419,
+    "throughput": 0.206667,
+    "cpu_utilization": 1.0,
+    "average_waiting_time": 0.0,
+    "average_turnaround_time": 55.9394,
+    "context_switches": 36,
+    "total_faults": 130,
+    "fault_rate": 0.866667,
+    "fault_breakdown": {
+      "RESOURCE_FAILURE": 21,
+      "DEADLINE_MISS": 109
+    },
+    "energy_consumed": 175.123,
+    "ai_interventions": 150,
+    "ai_precision": 0.8,
+    "resource_stats": {
+      "total_memory": 100,
+      "available_memory": 100,
+      "peak_memory_usage": 12,
+      "memory_utilization": 0.0,
+      "fragmentation_ratio": 0.0,
+      "alloc_failures": 0,
+      "total_battery": 1000.0,
+      "current_battery": 824.877,
+      "total_energy_consumed": 175.123
+    },
+    "lock_stats": {
+      "total_locks": 0,
+      "priority_inversion_events": 0,
+      "priority_inheritance_boosts": 0,
+      "locks": {}
+    }
+  },
+  {
+    "scheduler": "priority",
+    "simulation_steps": 150,
+    "tasks_completed": 35,
+    "tasks_fault_terminated": 1,
+    "task_completion_rate": 0.9722,
+    "deadline_miss_rate": 0.1429,
+    "throughput": 0.233333,
+    "cpu_utilization": 1.0,
+    "average_waiting_time": 0.0,
+    "average_turnaround_time": 17.6111,
+    "context_switches": 45,
+    "total_faults": 41,
+    "fault_rate": 0.273333,
+    "fault_breakdown": {
+      "RESOURCE_FAILURE": 21,
+      "DEADLINE_MISS": 20
+    },
+    "energy_consumed": 181.197,
+    "ai_interventions": 150,
+    "ai_precision": 0.2867,
+    "resource_stats": {
+      "total_memory": 100,
+      "available_memory": 100,
+      "peak_memory_usage": 12,
+      "memory_utilization": 0.0,
+      "fragmentation_ratio": 0.0,
+      "alloc_failures": 0,
+      "total_battery": 1000.0,
+      "current_battery": 818.803,
+      "total_energy_consumed": 181.197
+    },
+    "lock_stats": {
+      "total_locks": 0,
+      "priority_inversion_events": 0,
+      "priority_inheritance_boosts": 0,
+      "locks": {}
+    }
+  },
+  {
+    "scheduler": "rr",
+    "simulation_steps": 150,
+    "tasks_completed": 18,
+    "tasks_fault_terminated": 0,
+    "task_completion_rate": 1.0,
+    "deadline_miss_rate": 0.8889,
+    "throughput": 0.12,
+    "cpu_utilization": 1.0,
+    "average_waiting_time": 0.0,
+    "average_turnaround_time": 78.0,
+    "context_switches": 150,
+    "total_faults": 117,
+    "fault_rate": 0.78,
+    "fault_breakdown": {
+      "RESOURCE_FAILURE": 21,
+      "DEADLINE_MISS": 96
+    },
+    "energy_consumed": 175.268,
+    "ai_interventions": 150,
+    "ai_precision": 0.72,
+    "resource_stats": {
+      "total_memory": 100,
+      "available_memory": 100,
+      "peak_memory_usage": 12,
+      "memory_utilization": 0.0,
+      "fragmentation_ratio": 0.0,
+      "alloc_failures": 0,
+      "total_battery": 1000.0,
+      "current_battery": 824.732,
+      "total_energy_consumed": 175.268
+    },
+    "lock_stats": {
+      "total_locks": 0,
+      "priority_inversion_events": 0,
+      "priority_inheritance_boosts": 0,
+      "locks": {}
+    }
+  }
+]
