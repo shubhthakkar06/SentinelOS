@@ -1,0 +1,108 @@
+{
+  "reference_dir": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts",
+  "deck_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "generation_mode": "platform-native-imagegen",
+  "instructions": [
+    "Use the platform-native imagegen tool once per prompt.",
+    "Do not display generated images in chat unless the user explicitly asks to review them.",
+    "Generate slide 1 first as the visual style setter.",
+    "For slides 2..N, use slide 1 as a style reference when the platform supports image context.",
+    "Move or copy each selected generated image to its expected_image_path.",
+    "Before finalizing the response, delete temporary imagegen files created during the run unless the user explicitly requested those image files as deliverables."
+  ],
+  "slides": [
+    {
+      "index": 1,
+      "title": "## Slide 01",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-01.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-01.png"
+    },
+    {
+      "index": 2,
+      "title": "## Slide 02",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-02.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-02.png"
+    },
+    {
+      "index": 3,
+      "title": "## Slide 03",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-03.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-03.png"
+    },
+    {
+      "index": 4,
+      "title": "## Slide 04",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-04.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-04.png"
+    },
+    {
+      "index": 5,
+      "title": "## Slide 05",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-05.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-05.png"
+    },
+    {
+      "index": 6,
+      "title": "## Slide 06",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-06.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-06.png"
+    },
+    {
+      "index": 7,
+      "title": "## Slide 07",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-07.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-07.png"
+    },
+    {
+      "index": 8,
+      "title": "## Slide 08",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-08.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-08.png"
+    },
+    {
+      "index": 9,
+      "title": "## Slide 09",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-09.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-09.png"
+    },
+    {
+      "index": 10,
+      "title": "## Slide 10",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-10.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-10.png"
+    },
+    {
+      "index": 11,
+      "title": "## Slide 11",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-11.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-11.png"
+    },
+    {
+      "index": 12,
+      "title": "## Slide 12",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-12.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-12.png"
+    },
+    {
+      "index": 13,
+      "title": "## Slide 13",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-13.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-13.png"
+    },
+    {
+      "index": 14,
+      "title": "## Slide 14",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-14.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-14.png"
+    },
+    {
+      "index": 15,
+      "title": "## Slide 15",
+      "prompt_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/prompts/slide-15.txt",
+      "expected_image_path": "/Users/shubhthakkar/Projects/SentinelOS/tmp/slides/sentinel_end_eval/reference_prompts/slide-15.png"
+    }
+  ]
+}

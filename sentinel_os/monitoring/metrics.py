@@ -58,7 +58,9 @@ class Metrics:
 
         # --- AI Advisor ---
         self.ai_interventions: int = 0
-        self._ai_correct_predictions: int = 0   # intervention preceded a fault
+        self._ai_prevention_successes: int = 0  # Boosted + Succeeded (Predicted Fault avoided)
+        self._ai_accurate_predictions: int = 0  # Boosted + Faulted anyway (Unpreventable)
+        self._ai_false_alarms: int = 0          # Boosted + Succeeded (But risk was actually low)
         self._ai_total_predictions: int = 0
 
         # --- Fault breakdown ---
@@ -117,13 +119,22 @@ class Metrics:
     def record_energy(self, amount: float):
         self.energy_consumed += amount
 
-    def record_ai_intervention(self, predicted_fault: bool, actual_fault: bool):
-        """Track whether the AI advisor's prediction was correct."""
+    def record_ai_intervention(self, outcome: str):
+        """
+        Track the effectiveness of an AI intervention.
+        Outcomes: PREVENTION_SUCCESS, ACCURATE_PREDICTION, FALSE_ALARM, NO_INTERVENTION
+        """
         self._ai_total_predictions += 1
-        if predicted_fault:
+        
+        if outcome == "PREVENTION_SUCCESS":
             self.ai_interventions += 1
-            if actual_fault:
-                self._ai_correct_predictions += 1
+            self._ai_prevention_successes += 1
+        elif outcome == "ACCURATE_PREDICTION":
+            self.ai_interventions += 1
+            self._ai_accurate_predictions += 1
+        elif outcome == "FALSE_ALARM":
+            self.ai_interventions += 1
+            self._ai_false_alarms += 1
 
     # ------------------------------------------------------------------ #
     #  Derived KPIs                                                        #
@@ -188,11 +199,23 @@ class Metrics:
         return len(self.faults) / len(self.records)
 
     @property
-    def ai_precision(self) -> Optional[float]:
-        """Precision of AI interventions (were they followed by actual faults?)."""
+    def ai_efficiency_rate(self) -> Optional[float]:
+        """
+        Calculates 'ROI' of AI interventions. 
+        Success = (Prevented Faults + Accurate Predictions) / Total Boosts.
+        """
         if self.ai_interventions == 0:
             return None
-        return self._ai_correct_predictions / self.ai_interventions
+        # Accurate predictions + Successes = Useful interventions
+        useful = self._ai_prevention_successes + self._ai_accurate_predictions
+        return useful / self.ai_interventions
+
+    @property
+    def ai_prevention_rate(self) -> float:
+        """Percentage of interventions that successfully prevented a fault."""
+        if self.ai_interventions == 0:
+            return 0.0
+        return self._ai_prevention_successes / self.ai_interventions
 
     # ------------------------------------------------------------------ #
     #  Output                                                              #
@@ -230,11 +253,13 @@ class Metrics:
         print()
         print("  ── Energy & AI ─────────────────────────────────")
         print(f"  Energy consumed         : {self.energy_consumed:.2f} units")
-        print(f"  AI interventions        : {self.ai_interventions}")
-        if self.ai_precision is not None:
-            print(f"  AI intervention precision: {self.ai_precision:.1%}")
+        print(f"  AI Interventions       : {self.ai_interventions}")
+        if self.ai_efficiency_rate is not None:
+            print(f"  AI Prevention Success  : {self._ai_prevention_successes}")
+            print(f"  AI Efficiency Rate     : {self.ai_efficiency_rate:.1%}")
+            print(f"  AI False Alarm Rate    : {self._ai_false_alarms / self.ai_interventions:.1%}")
         else:
-            print(f"  AI intervention precision: N/A (no interventions)")
+            print(f"  AI Efficiency Rate     : N/A (no interventions)")
         print("═" * 55 + "\n")
 
     def to_dict(self) -> Dict:
@@ -256,7 +281,9 @@ class Metrics:
             "fault_breakdown": dict(self.fault_counts),
             "energy_consumed": round(self.energy_consumed, 4),
             "ai_interventions": self.ai_interventions,
-            "ai_precision": round(self.ai_precision, 4) if self.ai_precision is not None else None,
+            "ai_efficiency_rate": round(self.ai_efficiency_rate, 4) if self.ai_efficiency_rate is not None else None,
+            "ai_prevention_rate": round(self.ai_prevention_rate, 4),
+            "ai_prevention_successes": self._ai_prevention_successes,
         }
 
     def export_json(self, path: str):

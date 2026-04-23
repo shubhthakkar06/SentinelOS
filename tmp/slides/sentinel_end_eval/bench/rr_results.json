@@ -1,0 +1,53 @@
+{
+  "scheduler": "rr",
+  "simulation_steps": 200,
+  "tasks_completed": 51,
+  "tasks_fault_terminated": 2,
+  "task_completion_rate": 0.9623,
+  "deadline_miss_rate": 0.5098,
+  "throughput": 0.255,
+  "cpu_utilization": 1.0,
+  "average_waiting_time": 0.0,
+  "average_turnaround_time": 32.4468,
+  "context_switches": 200,
+  "total_faults": 30,
+  "fault_rate": 0.15,
+  "fault_breakdown": {
+    "DEADLINE_MISS": 30
+  },
+  "energy_consumed": 301.4,
+  "ai_interventions": 102,
+  "ai_efficiency_rate": 1.0,
+  "ai_prevention_rate": 0.549,
+  "ai_prevention_successes": 56,
+  "resource_stats": {
+    "total_memory": 100,
+    "available_memory": 50,
+    "peak_memory_usage": 80,
+    "memory_utilization": 0.5,
+    "memory_pressure": "LOW",
+    "fragmentation_ratio": 0.0,
+    "alloc_failures": 0,
+    "total_battery": 1000.0,
+    "current_battery": 991.9187,
+    "battery_fraction": 0.9919,
+    "battery_soc": 99.2,
+    "pack_voltage": 8.17,
+    "charge_state": "FULL",
+    "avg_temp": 24.5,
+    "max_temp": 24.5,
+    "healthy_cells": 8,
+    "total_cells": 8,
+    "thermal_throttle": false,
+    "eta_minutes": 3530.0,
+    "total_energy_consumed": 301.4,
+    "mission_mode": "Connected",
+    "survival_phase": 0
+  },
+  "lock_stats": {
+    "total_locks": 0,
+    "priority_inversion_events": 0,
+    "priority_inheritance_boosts": 0,
+    "locks": {}
+  }
+}

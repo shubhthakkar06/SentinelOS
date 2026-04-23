@@ -30,9 +30,15 @@ df.head()
 df_encoded = pd.get_dummies(df, columns=['task_type'])
 
 # Features we are feeding into the model
-X = df_encoded.drop(columns=['system_time', 'task_id', 'fault_occurred'])
+# We drop all target columns and non-feature metadata
+X = df_encoded.drop(columns=[
+    'system_time', 
+    'task_id', 
+    'fault_occurred', 
+    'recommended_priority'
+])
 
-# Target: Did a fault occur? (DEADLINE_MISS or RESOURCE_FAILURE)
+# Target: Did a fault occur?
 y = df_encoded['fault_occurred']
 
 # Split into 80% training data, 20% testing data
